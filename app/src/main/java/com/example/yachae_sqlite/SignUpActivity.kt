@@ -15,7 +15,7 @@ class SignUpActivity : AppCompatActivity() {
 
     lateinit var signup : Button
 
-    lateinit var DB : DBManager
+    lateinit var dbManager : DBManager
 
     lateinit var user : String
     lateinit var pass : String
@@ -36,7 +36,7 @@ class SignUpActivity : AppCompatActivity() {
 
         signup = findViewById(R.id.btn_signup)
 
-        DB = DBManager(this);
+        dbManager = DBManager(this);
 
         signup.setOnClickListener {
             user = username.text.toString()
@@ -47,9 +47,9 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this@SignUpActivity, "빈칸을 모두 입력해 주세요.", Toast.LENGTH_SHORT).show()
             else{
                 if(pass.equals(passCheck)){
-                    checkUser = DB.checkUsername(user)
+                    checkUser = dbManager.checkUsername(user)
                     if(checkUser == false){
-                        insert = DB.insertData(user, pass)
+                        insert = dbManager.insertData(user, pass)
                         if(insert == true){
                             Toast.makeText(this@SignUpActivity, "회원가입 성공!!", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, MainActivity::class.java)

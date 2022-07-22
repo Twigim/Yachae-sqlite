@@ -10,8 +10,8 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        var btn_signin : Button
-        var btn_signup : Button
+        lateinit var btn_signin : Button
+        lateinit var btn_signup : Button
 
         btn_signin = findViewById(R.id.btn_signin)
         btn_signup = findViewById(R.id.btn_signup)
@@ -23,8 +23,6 @@ class SplashActivity : AppCompatActivity() {
         btn_signup.setOnClickListener {
             gotoSignupActivity()
         }
-
-
     }
 
     private fun gotoSigninActivity(){
