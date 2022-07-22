@@ -1,44 +1,48 @@
-package com.example.kapil.kotlindemo
+package com.example.yachae_sqlite
 
+import android.database.sqlite.SQLiteOpenHelper
+import android.database.sqlite.SQLiteDatabase
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
-import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
 
-/**
- * Created by Kapil on 3/31/2018.
- */
-class DBManager(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class DBManager(context: Context?) : SQLiteOpenHelper(context, "yachae.db", null, 1) {
+    override fun onCreate(MyDB: SQLiteDatabase) {
+        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)")
+    }
 
-    val tableName :String ="user"
-    val ID: String = "_id"
-    val EMAIL: String = "email"
-    val PASSWORD: String = "password"
+    override fun onUpgrade(MyDB: SQLiteDatabase, i: Int, i1: Int) {
+        MyDB.execSQL("drop Table if exists users")
+    }
+
+    fun insertData(username: String?, password: String?): Boolean {
+        val MyDB = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put("username", username)
+        contentValues.put("password", password)
+        val result = MyDB.insert("users", null, contentValues)
+        if (result.equals(-1))
+            return false
+        else
+            return true
+    }
+
+    // 존재하는 username인지 확인
+    fun checkUsername(username: String): Boolean {
+        val MyDB = this.writableDatabase
+        val cursor = MyDB.rawQuery("Select * from users where username = ?", arrayOf(username))
+        return if (cursor.count > 0) true else false
+    }
+
+    fun checkUsernamePassword(username: String, password: String): Boolean {
+        val MyDB = this.writableDatabase
+        val cursor = MyDB.rawQuery(
+            "Select * from users where username = ? and password = ?",
+            arrayOf(username, password)
+        )
+        return if (cursor.count > 0) true else false
+    }
+
     companion object {
-
-        val DATABASE_VERSION = 1
-        val DATABASE_NAME = "user.db"
-
-
-    }
-
-    public val SQL_CREATE_ENTRIES:String ="CREATE TABLE IF NOT EXISTS "+ tableName + "( ${ID} integer PRIMARY KEY autoincrement," +
-            "${EMAIL} text, ${PASSWORD} text)"
-
-    override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL(SQL_CREATE_ENTRIES)
-
-    }
-
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-    }
-
-    fun insertIntoTable(tableName:String,contentValues: ContentValues){
-        getWritableDatabase().insert(tableName,null,contentValues)
-    }
-    fun  GetDetaislCursor(lquerry:String):Cursor{
-        var cursor : Cursor =readableDatabase.rawQuery(lquerry,null)
-        return cursor
+        const val DB_NAME = "yachae.db"
     }
 }

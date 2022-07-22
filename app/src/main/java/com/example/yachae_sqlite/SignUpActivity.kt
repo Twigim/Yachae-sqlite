@@ -1,64 +1,72 @@
 package com.example.yachae_sqlite
 
-import android.content.ContentValues
 import android.content.Intent
-import android.database.Cursor
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.EditText
 import android.os.Bundle
 import android.view.View
-import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import com.example.kapil.kotlindemo.DBManager
-
+import android.widget.Button
+import android.widget.Toast
 
 class SignUpActivity : AppCompatActivity() {
+    lateinit var username: EditText
+    lateinit var password: EditText
+    lateinit var passwordCheck: EditText
 
-    var email :String =""
-    var password : String =""
+    lateinit var signup : Button
+
+    lateinit var DB : DBManager
+
+    lateinit var user : String
+    lateinit var pass : String
+    lateinit var passCheck : String
+
+    var checkUser: Boolean = false
+    var insert: Boolean = false
 
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate(saveInstanceState: Bundle?) {
+        super.onCreate(saveInstanceState)
         setContentView(R.layout.activity_signup)
 
-        var databaseHelper : DBManager = DBManager(this)
-        var contentValues :ContentValues = ContentValues()
+        username = findViewById(R.id.edt_username)
+        password = findViewById(R.id.edt_password)
+        passwordCheck = findViewById(R.id.edt_passwordCheck)
 
-        var edt_email = findViewById(R.id.edt_email) as EditText
-        var edt_password = findViewById(R.id.edt_password) as EditText
+        signup = findViewById(R.id.btn_signup)
 
+        DB = DBManager(this);
 
+        signup.setOnClickListener {
+            user = username.text.toString()
+            pass = password.text.toString()
+            passCheck = passwordCheck.text.toString()
 
-        var btn_signup : Button = findViewById(R.id.btn_signup) as Button
+            if(user.equals("") || pass.equals("") || passCheck.equals(""))
+                Toast.makeText(this@SignUpActivity, "빈칸을 모두 입력해 주세요.", Toast.LENGTH_SHORT).show()
+            else{
+                if(pass.equals(passCheck)){
+                    checkUser = DB.checkUsername(user)
+                    if(checkUser == false){
+                        insert = DB.insertData(user, pass)
+                        if(insert == true){
+                            Toast.makeText(this@SignUpActivity, "회원가입 성공!!", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                        }else{
+                            Toast.makeText(this@SignUpActivity, "회원가입 실패..", Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        Toast.makeText(this@SignUpActivity, "이미 존재하는 회원정보입니다.", Toast.LENGTH_SHORT).show()
 
-        btn_signup.setOnClickListener { v: View? ->
+                    }
+                }else{
+                    Toast.makeText(this@SignUpActivity, "입력한 정보를 다시 확인해 주세요", Toast.LENGTH_SHORT).show()
 
-
-            email = edt_email.text .toString()
-            password = edt_password.text .toString()
-
-            if (!email.isEmpty() && !password.isEmpty()  ){
-
-                var lQuerry : String = "select ${databaseHelper.EMAIL} from ${databaseHelper.tableName}"
-                var cursor : Cursor = databaseHelper.GetDetaislCursor(lQuerry)
-                if (cursor.count>0)
-                    edt_email.setError("Email is already registered")
-                else {
-
-                    contentValues.put(databaseHelper.EMAIL, email)
-                    contentValues.put(databaseHelper.PASSWORD, password)
-
-                    databaseHelper.insertIntoTable(databaseHelper.tableName, contentValues)
-                    Toast.makeText(this, "Registerd Succesfully", Toast.LENGTH_LONG).show()
-
-                    var intent: Intent = Intent(this, SignInActivity::class.java)
-                    startActivity(intent)
-                    finish()
                 }
             }
-            else Toast.makeText(this, "fill all field", Toast.LENGTH_LONG).show()
 
         }
     }
-
 }

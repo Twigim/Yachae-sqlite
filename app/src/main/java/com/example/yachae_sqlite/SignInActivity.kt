@@ -1,69 +1,56 @@
 package com.example.yachae_sqlite
 
-import android.content.Intent
-import android.database.Cursor
-import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.kapil.kotlindemo.DBManager
+import android.widget.EditText
+import android.os.Bundle
+import android.widget.Toast
+import android.content.Intent
+import android.widget.Button
+import android.widget.TextView
 
 class SignInActivity : AppCompatActivity() {
+    var username: EditText? = null
+    var password: EditText? = null
+    var btn_signin: Button? = null
+    var tv_signup : TextView? = null
+    var DB: DBManager? = null
 
-    var email :String =""
-    var password : String = ""
-    var checkPassword : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
+        username = findViewById(R.id.edt_username)
+        password = findViewById(R.id.edt_password)
+        btn_signin = findViewById(R.id.btn_signin)
+        tv_signup = findViewById(R.id.tv_gotoSignup)
 
-        var edt_email = findViewById(R.id.edt_email) as EditText
-        var edt_password = findViewById(R.id.edt_password) as EditText
-        var btn_signin : Button = findViewById(R.id.btn_signin) as Button
-        var tv_gotoSignup = findViewById(R.id.btn_gotoSignup) as TextView
-        var databaseHelper = DBManager(this)
+        DB = DBManager(this)
 
-        tv_gotoSignup.setOnClickListener { v: View? ->
-            var intent : Intent = Intent(this, SignUpActivity::class.java)
+
+        btn_signin!!.setOnClickListener {
+            val user = username!!.text.toString()
+            val pass = password!!.text.toString()
+            if (user == "" || pass == "") Toast.makeText(
+                this@SignInActivity,
+                "빈칸을 모두 입력해 주세요.",
+                Toast.LENGTH_SHORT
+            ).show() else {
+                val checkUserPass = DB!!.checkUsernamePassword(user, pass)
+                if (checkUserPass == true) {
+                    Toast.makeText(this@SignInActivity, "로그인 성공!!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this@SignInActivity, "로그인 실패..", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+
+        }
+
+        tv_signup!!.setOnClickListener {
+            val intent = Intent(applicationContext, SignUpActivity::class.java)
             startActivity(intent)
         }
-        btn_signin.setOnClickListener { v: View? ->
-            email = edt_email.text.toString()
-            password = edt_password.text.toString()
-
-
-            if (email.isEmpty()){
-                edt_email.setError("이메일을 입력해 주세요")
-                return@setOnClickListener
-            }
-            else if(password.isEmpty()){
-                edt_password.setError("비밀번호를 입력해 주세요.")
-                return@setOnClickListener
-            }
-            else  {
-
-                var lQuerry: String = "Select * from " + databaseHelper.tableName + " where " + databaseHelper.EMAIL + "='" + email + "' and " + databaseHelper.PASSWORD + "='" + password + "'"
-                var cursor: Cursor = databaseHelper.GetDetaislCursor(lQuerry)
-
-                if (cursor.count > 0) {
-                    var intent: Intent = Intent(this, MainActivity::class.java)
-                    intent.putExtra("이메일", email)
-                    startActivity(intent)
-                    finish()
-                }
-
-                else
-                    Toast.makeText(this,"이메일과 비밀번호를 올바르게 입력해 주세요.", Toast.LENGTH_LONG).show()
-            }
-
-        }
-
-
-
     }
 }
