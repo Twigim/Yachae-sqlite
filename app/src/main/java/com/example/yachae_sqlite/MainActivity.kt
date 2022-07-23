@@ -2,21 +2,19 @@ package com.example.yachae_sqlite
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
 
-    private val fl: FrameLayout by lazy {
+    private val frameLayout: FrameLayout by lazy {
         findViewById(R.id.mainContainer)
     }
 
-    private val bn: BottomNavigationView by lazy {
+    private val bottomNavigation: BottomNavigationView by lazy {
         findViewById(R.id.bottomNavigationView)
     }
 
@@ -27,9 +25,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction().add(fl.id, ChallengeFragment()).commit()
+        supportFragmentManager.beginTransaction().add(frameLayout.id, ChallengeFragment()).commit()
 
-        bn.setOnNavigationItemSelectedListener {
+        bottomNavigation.setOnNavigationItemSelectedListener {
             replaceFragment(
                 when (it.itemId) {
                     R.id.challenge_btn -> ChallengeFragment()
@@ -48,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(fl.id, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(frameLayout.id, fragment).commit()
     }
 
 
