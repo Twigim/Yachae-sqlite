@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/challenge_btn"
+        android:icon="@drawable/nav_challenge_btn"
+        android:enabled="true"
+        android:title="챌린지" />
+
+    <item
+        android:id="@+id/community_btn"
+        android:icon="@drawable/nav_community_btn"
+        android:enabled="true"
+        android:title="커뮤니티" />
+
+    <item
+        android:id="@+id/vegInfo_btn"
+        android:icon="@drawable/nav_veg_info_btn"
+        android:enabled="true"
+        android:title="채식정보" />
+
+    <item
+        android:id="@+id/mypage_btn"
+        android:icon="@drawable/nav_mypage_btn"
+        android:enabled="true"
+        android:title="내 정보" />
+
+
+
+
+</menu>
