@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_corner">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="30dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:text="채식 유형을 선택해봐"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_close_dialog"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/ic_close" />
+
+
+    </LinearLayout>
+
+
+
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp">
+
+        <RadioButton
+            android:id="@+id/rb_type1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp"
+            android:layout_marginBottom="16dp"
+            android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
+            android:textSize="16dp"
+            android:text="비건"/>
+
+        <RadioButton
+            android:id="@+id/rb_type2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp"
+            android:layout_marginBottom="16dp"
+            android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
+            android:textSize="16dp"
+            android:text="락토"/>
+
+        <RadioButton
+            android:id="@+id/rb_type3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp"
+            android:layout_marginBottom="16dp"
+            android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
+            android:textSize="16dp"
+            android:text="오보"/>
+
+        <RadioButton
+            android:id="@+id/rb_type4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp"
+            android:layout_marginBottom="16dp"
+            android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
+            android:textSize="16dp"
+            android:text="락토오보"/>
+
+        <RadioButton
+            android:id="@+id/rb_type5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp"
+            android:layout_marginBottom="16dp"
+            android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
+            android:textSize="16dp"
+            android:text="폴로"/>
+
+        <RadioButton
+            android:id="@+id/rb_type6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp"
+            android:layout_marginBottom="16dp"
+            android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
+            android:textSize="16dp"
+            android:text="페스코"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/goto_veg_type_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="36dp"
+        android:text="@string/underline"
+        android:textAlignment="center"/>
+
+    <Button
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="선택 완료"
+        android:textColor="@color/white"
+        android:background="@drawable/black_btn_short"/>
+
+
+
+
+
+</LinearLayout>
