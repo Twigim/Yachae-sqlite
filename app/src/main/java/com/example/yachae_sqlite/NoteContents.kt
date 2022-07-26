@@ -19,7 +19,7 @@ class NoteContents:AppCompatActivity() {
     @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_note_main)
 
         tvContent = findViewById(R.id.tvContent)
 
