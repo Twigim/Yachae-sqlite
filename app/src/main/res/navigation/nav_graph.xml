@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/challengeFragment">
+
+    <fragment
+        android:id="@+id/challengeFragment"
+        android:name="com.example.yachae_sqlite.ChallengeFragment"
+        android:label="fragment_challenge"
+        tools:layout="@layout/fragment_challenge" />
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.example.yachae_sqlite.CommunityFragment"
+        android:label="fragment_community"
+        tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/vegInfoFragment"
+        android:name="com.example.yachae_sqlite.VegInfoFragment"
+        android:label="fragment_veg_info"
+        tools:layout="@layout/fragment_veg_info" />
+    <fragment
+        android:id="@+id/mypageFragment"
+        android:name="com.example.yachae_sqlite.MypageFragment"
+        android:label="fragment_mypage"
+        tools:layout="@layout/fragment_mypage" />
+</navigation>

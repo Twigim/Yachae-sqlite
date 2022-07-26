@@ -23,7 +23,7 @@ class NoteReg : AppCompatActivity() {
         btnSave = findViewById(R.id.btn_save)
         edtContent = findViewById(R.id.edit_content)
 
-        dbManager = DBManager(this, "noteDB", null, 1)
+        dbManager = DBManager(this)
 
         //save
         btnSave.setOnClickListener {

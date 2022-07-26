@@ -26,7 +26,7 @@ class NoteContents:AppCompatActivity() {
         val intent = intent
         str_content = intent.getStringExtra("intent_content").toString()
 
-        dbManager = DBManager(this, "noteDB", null, 1)
+        dbManager = DBManager(this)
         database = dbManager.readableDatabase
 
         var cursor: Cursor
