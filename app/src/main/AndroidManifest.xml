@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewNotepadActivity"></activity>
+        <activity android:name=".NoteReg"></activity>
     </application>
 
 </manifest>
