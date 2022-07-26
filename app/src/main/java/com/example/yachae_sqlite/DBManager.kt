@@ -1,9 +1,10 @@
 package com.example.yachae_sqlite
 
-import android.database.sqlite.SQLiteOpenHelper
-import android.database.sqlite.SQLiteDatabase
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 
 class DBManager(context: Context?) : SQLiteOpenHelper(context, "yachae.db", null, 1) {
     override fun onCreate(MyDB: SQLiteDatabase) {
@@ -42,6 +43,13 @@ class DBManager(context: Context?) : SQLiteOpenHelper(context, "yachae.db", null
             arrayOf(username, password)
         )
         return if (cursor.count > 0) true else false
+    }
+
+    fun existsColumnInTable(inTable: String, columnToCheck: String): Boolean {
+        val MyDB = this.writableDatabase
+        val cursor = MyDB.rawQuery("SELECT * FROM $inTable LIMIT 0", null)
+
+        return if (cursor.getColumnIndex(columnToCheck) != -1) true else false
     }
 
     companion object {
