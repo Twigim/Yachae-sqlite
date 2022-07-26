@@ -7,16 +7,16 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_marginTop="24dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="30dp"
         android:layout_gravity="center"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="30dp"
             android:text="채식 유형을 선택해봐"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -26,7 +26,7 @@
             android:id="@+id/btn_close_dialog"
             android:layout_width="44dp"
             android:layout_height="44dp"
-
+            android:layout_marginBottom="24dp"
             android:background="@drawable/ic_close" />
 
 
@@ -48,6 +48,7 @@
             android:layout_marginHorizontal="36dp"
             android:layout_marginBottom="16dp"
             android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
             android:textSize="16dp"
             android:text="비건"/>
 
@@ -58,6 +59,7 @@
             android:layout_marginHorizontal="36dp"
             android:layout_marginBottom="16dp"
             android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
             android:textSize="16dp"
             android:text="락토"/>
 
@@ -68,6 +70,7 @@
             android:layout_marginHorizontal="36dp"
             android:layout_marginBottom="16dp"
             android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
             android:textSize="16dp"
             android:text="오보"/>
 
@@ -78,6 +81,7 @@
             android:layout_marginHorizontal="36dp"
             android:layout_marginBottom="16dp"
             android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
             android:textSize="16dp"
             android:text="락토오보"/>
 
@@ -88,6 +92,7 @@
             android:layout_marginHorizontal="36dp"
             android:layout_marginBottom="16dp"
             android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
             android:textSize="16dp"
             android:text="폴로"/>
 
@@ -98,22 +103,25 @@
             android:layout_marginHorizontal="36dp"
             android:layout_marginBottom="16dp"
             android:paddingLeft="12dp"
+            android:buttonTint="@color/black"
             android:textSize="16dp"
             android:text="페스코"/>
     </RadioGroup>
 
     <TextView
+        android:id="@+id/goto_veg_type_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="36dp"
-        android:text="아직 용어를 잘 몰라."
+        android:text="@string/underline"
         android:textAlignment="center"/>
 
     <Button
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="선택 완료"
         android:textColor="@color/white"
         android:background="@drawable/black_btn_short"/>
