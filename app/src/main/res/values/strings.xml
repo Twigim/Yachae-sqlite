@@ -2,5 +2,7 @@
     <string name="app_name">Yachae-sqlite</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="underline"><u>아직 용어를 잘 몰라 </u>.</string>
+    <string name="underline_veg_info"><u>아직 용어를 잘 몰라 </u>.</string>
+    <string name="underline_signup"><u>회원가입 </u></string>
+
 </resources>
