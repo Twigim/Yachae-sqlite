@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="채식 식단 기록"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:inputType="textShortMessage"
+        android:layout_margin="20dp"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="오늘 먹은 식단에 체크하기"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginLeft="18dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        android:paddingTop="17dp"
+        android:paddingLeft="15dp"
+    android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:id="@+id/chip_milk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="🥛 우유"
+            android:textSize="14sp" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/chip_dairyproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🧀 유제품"
+            android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:id="@+id/chip_vegetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="🥗 채소"
+                android:textSize="14sp" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/chip_egg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🍳 달걀"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:id="@+id/chip_fish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="🍣 어류"
+                android:textSize="14sp" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/chip_meat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🍖 육류"
+                android:textSize="14sp" />
+            <com.google.android.material.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/chip_fowls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🍗 조류"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="40dp"
+        android:text="식단 한줄평하기"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="top" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="9dp"
+        android:gravity="top"
+        android:hint="식단 한줄평을 기록해주세요."
+        android:textSize="12dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#EBE8E8"/>
+    <Button
+        android:id="@+id/addevent"
+        android:layout_width="160dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/기록하기Button"
+        android:text="기록하기"
+        android:textSize="14dp"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
+</LinearLayout>
