@@ -1,28 +1,19 @@
-package com.example.calendar;
+package com.example.yachae_sqlite;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.TimePickerDialog;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.GradientDrawable;
-import android.provider.CalendarContract;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.material.chip.Chip;
 
@@ -32,7 +23,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.TimeZone;
 
 public class CustomCalendarActivity extends LinearLayout {
     Button NextButton,PreviousButton;

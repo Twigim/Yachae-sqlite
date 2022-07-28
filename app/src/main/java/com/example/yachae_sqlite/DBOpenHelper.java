@@ -1,4 +1,4 @@
-package com.example.calendar;
+package com.example.yachae_sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;

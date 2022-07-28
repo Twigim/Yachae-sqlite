@@ -1,4 +1,4 @@
-package com.example.calendar;
+package com.example.yachae_sqlite;
 
 public class Events {
     String DATE,MONTH,YEAR;
