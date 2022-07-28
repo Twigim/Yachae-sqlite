@@ -26,7 +26,6 @@ class SignInActivity : AppCompatActivity() {
 
         dbManager = DBManager(this)
 
-
         btn_signin!!.setOnClickListener {
             val user = username!!.text.toString()
             val pass = password!!.text.toString()
