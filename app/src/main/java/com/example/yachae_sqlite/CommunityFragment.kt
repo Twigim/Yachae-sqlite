@@ -1,5 +1,6 @@
 package com.example.yachae_sqlite
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -19,7 +21,6 @@ lateinit var adapter: PostAdapter
 class CommunityFragment : Fragment() {
 
     private lateinit var dbManager: DBManager
-    //private lateinit var listData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,27 +31,27 @@ class CommunityFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        //return inflater.inflate(R.layout.fragment_community, container, false)
         val rootview = inflater.inflate(R.layout.fragment_community, container, false)
+
+        dbManager= DBManager(container?.context)
 
         val adapter = PostAdapter()
         adapter.listData.addAll(dbManager.selectPost())
         adapter.dbManager = dbManager
 
-        //val community_write: ImageButton = rootview.findViewbyID(R.id.btn_community_write) as ImageButton
+        //recyclerView.adapter = adapter
+        recyclerView = rootview.findViewById(R.id.recyclerCommunityView)
+        recyclerView.adapter = adapter
 
-        recyclerView = requireView().findViewById(R.id.recyclerCommunityView) as RecyclerView
+        //recyclerView 화면에 보이는 레이아웃 매니저 연결결
+       recyclerView.layoutManager = LinearLayoutManager(container?.context)
 
+        val community_write: ImageButton = rootview.findViewById(R.id.btn_community_write) as ImageButton
         community_write.setOnClickListener {
             //requireActivity().startActivity(Intent(activity, PostActivity::class.java))
-
-            val intent = Intent(getActivity(), MainActivity::class.java)
+            val intent = Intent(getActivity(), PostActivity::class.java)
             startActivity(intent)
-
-//            activity?.let{
-//                val intent = Intent(context, PostActivity::class.java)
-//                startActivity(intent)
-//            }
-
         }
         return rootview
     }

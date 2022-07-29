@@ -3,7 +3,6 @@ package com.example.yachae_sqlite
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -14,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction
 class PostActivity : AppCompatActivity() {
 
     private lateinit var btnpost: Button
+    //private lateinit var btnPostClose : Button
     private lateinit var edtContent: EditText
 
     private lateinit var dbManager: DBManager
@@ -30,7 +30,8 @@ class PostActivity : AppCompatActivity() {
         dbManager = DBManager(this)
         database = dbManager.writableDatabase
 
-        btnpost = findViewById(R.id.post)
+        btnpost = findViewById(R.id.btnPost)
+        //btnPostClose = findViewById(R.id.btnPostClose)
         edtContent = findViewById(R.id.post_content)
 
         btnpost.setOnClickListener {
@@ -46,6 +47,13 @@ class PostActivity : AppCompatActivity() {
             val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.postActivity, CommunityFragment()).commit()
         }
+
+//        btnPostClose.setOnClickListener {
+//
+//            val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+//            fragmentTransaction.replace(R.id.postActivity, CommunityFragment()).commit()
+//
+//        }
 
         //openGallery = findViewById(R.id.openGallery)
         //openGallery.setOnClickListener{  }

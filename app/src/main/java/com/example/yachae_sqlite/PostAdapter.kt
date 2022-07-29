@@ -14,9 +14,6 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     var listData = ArrayList<PostList>()
 
     internal lateinit var dbManager: DBManager
-    private lateinit var database: SQLiteDatabase
-
-    //var helper:SqliteHelper? = null
 
     //뷰홀더 생성 (레이아웃 생성)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -45,8 +42,6 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         private var view: View = v
         fun bind(item:PostList){
-            //val user: TextView = view.findViewById(R.id.textId)
-            //val datetime: TextView = view.findViewById(R.id.textDatetime)
             val postcontent: TextView = view.findViewById(R.id.textContent)
 
             postcontent.text = item.postContent

@@ -4,16 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.TextView
-import org.w3c.dom.Text
 
 
-    class NoteMainActivity : AppCompatActivity() {
+class NoteMainActivity : AppCompatActivity() {
 
         private val tableName: String = "noteData"
 
