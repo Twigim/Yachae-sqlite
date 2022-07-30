@@ -37,6 +37,7 @@
         android:textStyle="bold">
     </TextView>
 
+
     <View
         android:layout_width="match_parent"
         android:layout_height="192dp">
@@ -118,12 +119,140 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="초간단 비건 레시피"
+        android:text="초간단 비건 레시피 4종"
         android:textSize="16dp"
         android:textColor="@color/black"
         android:textStyle="bold">
     </TextView>
-    
+
+    <FrameLayout
+        android:id="@+id/veg_info_recipe1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:src="@drawable/veg_info_recipe1"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="16dp"
+            android:text="새콤한 가지볶음"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:layout_marginLeft="16dp"
+            android:text="준비물 | 가지 2개, 양파 0.5개, 파 한 웅큼"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/veg_info_recipe2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:src="@drawable/veg_info_recipe2"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="16dp"
+            android:text="달달한 감자조림"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:layout_marginLeft="16dp"
+            android:text="준비물 | 감자 3개, 양파 2개, 파 두 웅큼"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/veg_info_recipe3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:src="@drawable/veg_info_recipe3"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="16dp"
+            android:text="하루만에 뚝딱, 아보카도장"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:layout_marginLeft="16dp"
+            android:text="준비물 | 아보카도 2개, 양파 반개, 파프리카 반 개"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/veg_info_recipe4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:src="@drawable/veg_info_recipe4"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="16dp"
+            android:text="단 5분만에, 베리${&}바나나 오트밀"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:layout_marginLeft="16dp"
+            android:text="준비물 | 오트밀, 블루베리, 바나나, 두유"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+    </FrameLayout>
+
+
 
 
 
