@@ -15,6 +15,8 @@ class ChallengeFragment : Fragment() {
     var initChallenge : Boolean = false
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

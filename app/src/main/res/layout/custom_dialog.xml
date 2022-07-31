@@ -33,13 +33,11 @@
     </LinearLayout>
 
 
-
-
-
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp">
+        android:layout_marginTop="32dp"
+        android:id="@+id/veg_type_radioGroup">
 
         <RadioButton
             android:id="@+id/rb_type1"
@@ -50,7 +48,7 @@
             android:paddingLeft="12dp"
             android:buttonTint="@color/black"
             android:textSize="16dp"
-            android:text="비건"/>
+            android:text="비건" />
 
         <RadioButton
             android:id="@+id/rb_type2"
@@ -61,7 +59,7 @@
             android:paddingLeft="12dp"
             android:buttonTint="@color/black"
             android:textSize="16dp"
-            android:text="락토"/>
+            android:text="락토" />
 
         <RadioButton
             android:id="@+id/rb_type3"
