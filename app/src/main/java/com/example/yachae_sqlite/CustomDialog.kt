@@ -18,9 +18,25 @@ class CustomDialog: DialogFragment() {
     lateinit var veg_type_radioGroup : RadioGroup
     lateinit var veg_type : String
 
+    lateinit var dbManager: DBManager
+
+    lateinit var username : String
+    lateinit var password : String
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        dbManager = DBManager(context)
+
+    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         getDialog()!!.getWindow()?.setBackgroundDrawableResource(R.drawable.dialog_corner)
+
+        username= arguments?.getString("username").toString()
+        password= arguments?.getString("password").toString()
+
         val view = inflater.inflate(R.layout.custom_dialog, null)
         return view
 
@@ -63,6 +79,9 @@ class CustomDialog: DialogFragment() {
                 R.id.rb_type6 -> veg_type = "페스코"
             }
             Toast.makeText(requireActivity(), veg_type + " 이(가) 선택됨", Toast.LENGTH_SHORT).show();
+
+            dbManager.updateVegTypeData(username, password, veg_type)
+
         })
 
 

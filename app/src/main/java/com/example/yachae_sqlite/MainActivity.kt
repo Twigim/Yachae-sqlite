@@ -10,6 +10,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var username : String
+    lateinit var password : String
+
     private val frameLayout: FrameLayout by lazy {
         findViewById(R.id.mainContainer)
     }
@@ -25,7 +28,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        username = intent.getStringExtra("user").toString()
+        password = intent.getStringExtra("pass").toString()
+
+        //This code is to pass the value to Fragment
+        var bundle=Bundle()
+        bundle.putString("username",username)
+        var frag=ChallengeFragment()
+        frag.arguments=bundle
+
         supportFragmentManager.beginTransaction().add(frameLayout.id, ChallengeFragment()).commit()
+
+
+
 
         bottomNavigation.setOnNavigationItemSelectedListener {
             replaceFragment(
@@ -46,7 +62,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment) {
+
         supportFragmentManager.beginTransaction().replace(frameLayout.id, fragment).commit()
+
     }
 
 

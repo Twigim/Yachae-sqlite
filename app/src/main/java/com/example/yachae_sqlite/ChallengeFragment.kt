@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 
+
 class ChallengeFragment : Fragment() {
 
     lateinit var dbManager: DBManager
@@ -15,10 +16,14 @@ class ChallengeFragment : Fragment() {
     var initChallenge : Boolean = false
 
 
-
+    lateinit var username : String
+    lateinit var password : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//        username = arguments?.getString("username").toString()
+//        password = arguments?.getString("password").toString()
 
     }
 
@@ -27,6 +32,13 @@ class ChallengeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        username= arguments?.getString("username").toString()
+        password= arguments?.getString("password").toString()
+
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        bundle.putString("password", password)
+
 
         return inflater.inflate(R.layout.fragment_challenge, container, false)
     }
@@ -34,14 +46,26 @@ class ChallengeFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        dbManager = DBManager(context)
-        initChallenge = dbManager!!.existsColumnInTable("users", "veg_type")
 
-        if (initChallenge == true) {
-            Toast.makeText(requireActivity(), "필드 있음", Toast.LENGTH_SHORT).show()
+
+
+        dbManager = DBManager(context)
+        //initChallenge = dbManager.isVegTypeNull("users")
+
+        val MyDB = dbManager.writableDatabase
+        val cursor = MyDB.rawQuery(
+            "Select * from users where veg_type = ?", null)
+
+        if (cursor.count != 0) {
+            Toast.makeText(requireActivity(), "veg_type 존재", Toast.LENGTH_SHORT).show()
 
         } else {
-            Toast.makeText(requireActivity(), "필드 존재하지 않음!!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), "veg_type 존재하지 않음", Toast.LENGTH_SHORT).show()
+
+
+
+
+
             activity?.let { CustomDialog().show(it.supportFragmentManager, "CustomFragment") }
         }
     }
