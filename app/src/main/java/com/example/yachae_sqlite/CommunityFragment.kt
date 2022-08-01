@@ -16,7 +16,6 @@ lateinit var community_write: ImageButton
 lateinit var recyclerView: RecyclerView
 private val layoutManager: RecyclerView.LayoutManager? = null
 lateinit var adapter: PostAdapter
-//lateinit var view: View
 
 class CommunityFragment : Fragment() {
 
@@ -47,9 +46,10 @@ class CommunityFragment : Fragment() {
         //recyclerView 화면에 보이는 레이아웃 매니저 연결결
        recyclerView.layoutManager = LinearLayoutManager(container?.context)
 
+        //글쓰기 Activity로 전환
         val community_write: ImageButton = rootview.findViewById(R.id.btn_community_write) as ImageButton
         community_write.setOnClickListener {
-            //requireActivity().startActivity(Intent(activity, PostActivity::class.java))
+            requireActivity().startActivity(Intent(activity, PostActivity::class.java))
             val intent = Intent(getActivity(), PostActivity::class.java)
             startActivity(intent)
         }

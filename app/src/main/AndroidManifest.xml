@@ -27,12 +27,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".NoteReg"></activity>
-
-
         <activity android:name=".SignInActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".PostActivity"></activity>
+        <activity android:name=".DetailActivity"></activity>
+
+
+
 
     </application>
 

@@ -1,6 +1,7 @@
 package com.example.yachae_sqlite
 
-class PostList (
-// var user:String ,
-    // ,var timestamp:Long)
-                var postContent:String){}
+class PostList(
+// var user:String
+    val postContent: String
+    //,val postTime : Int
+    ){}
