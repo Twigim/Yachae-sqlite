@@ -11,17 +11,17 @@ class DetailActivity : AppCompatActivity(){
 
     lateinit var detailToolbar : androidx.appcompat.widget.Toolbar
 
-    //lateinit var UpdateDetailContent : EditText
-    //lateinit var detailContent : String
+    lateinit var UpdateDetailContent : TextView
+    lateinit var detailContent : String
 
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_community_detail)
 
-        //UpdateDetailContent = findViewById(R.id.textContent);
+        UpdateDetailContent = findViewById(R.id.update_detail_content)
 
-        //getAndSetIntentData()
+        getAndSetIntentData()
 
         //Toolbar
         detailToolbar = findViewById(R.id.detail_toolbar)
@@ -32,16 +32,17 @@ class DetailActivity : AppCompatActivity(){
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
     }
 
-//    fun getAndSetIntentData() {
-//        if(getIntent().hasExtra("detailContent")){
-//
-//            //데이터 가져오기
-//            detailContent = getIntent().getStringExtra("detailContent").toString()
-//
-//            //데이터 넣기
-//            UpdateDetailContent.setText(detailContent)
-//            }
-//        }
+    //데이터 가져와서 화면에 보여주기
+    fun getAndSetIntentData() {
+        if(getIntent().hasExtra("detailContent")){
+
+            //데이터 가져오기
+            detailContent = getIntent().getStringExtra("detailContent").toString()
+
+            //데이터 넣기
+            UpdateDetailContent.setText(detailContent)
+            }
+        }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.getItemId()) {

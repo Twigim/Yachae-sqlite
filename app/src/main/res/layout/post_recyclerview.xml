@@ -7,23 +7,26 @@
 
     <ImageView
         android:id="@+id/imgUser"
-        android:layout_width="61dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="44dp"
         android:layout_marginLeft="16px"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/ic_anonymous_profile"
+        android:tint="#EBE8E8"
         app:layout_constraintBottom_toTopOf="@+id/textContent"
         app:layout_constraintEnd_toStartOf="@+id/textUsername"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:text="username"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="6dp"
+        android:text="익명"
         app:layout_constraintEnd_toStartOf="@+id/textDatetime"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imgUser"
@@ -33,8 +36,8 @@
         android:id="@+id/textDatetime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="28dp"
         android:text="time"
         app:layout_constraintEnd_toStartOf="@+id/imgUser"
         app:layout_constraintHorizontal_bias="0.5"
@@ -46,7 +49,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="6px"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
         android:text="내용 표시"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,11 +68,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textContent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

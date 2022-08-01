@@ -33,7 +33,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imgUser"
+                android:id="@+id/update_imgUser"
                 android:layout_width="61dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="6dp"
@@ -45,12 +45,12 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/textUsername"
+                android:id="@+id/update_Username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:text="username"
-                app:layout_constraintStart_toEndOf="@+id/imgUser"
+                android:text="익명"
+                app:layout_constraintStart_toEndOf="@+id/update_imgUser"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteY="34dp" />
 
@@ -61,14 +61,14 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="10dp"
-                android:text="내용 표시"
-                app:layout_constraintBottom_toTopOf="@+id/update_datetiem"
+                android:hint="내용 표시"
+                app:layout_constraintBottom_toTopOf="@+id/update_datetime"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgUser"
+                app:layout_constraintTop_toBottomOf="@+id/update_imgUser"
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/update_datetiem"
+                android:id="@+id/update_datetime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"

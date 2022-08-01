@@ -38,6 +38,8 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
         holder.itemView.setOnClickListener(){
             val intent = Intent(holder.itemView?.context, DetailActivity::class.java)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
+
+            intent.putExtra("detailContent", postlist.postContent)
         }
     }
 
