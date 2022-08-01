@@ -2,22 +2,20 @@ package com.example.yachae_sqlite
 
 import android.content.Context
 import android.content.Intent
-import android.system.Os.bind
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import org.w3c.dom.Text
-import java.text.SimpleDateFormat
 
 
 //RecyclerView.Adapter 상속받은 다음 <> 안에 holder 객체를 받음
 class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
+    lateinit var context: Context
     var listData = ArrayList<PostList>()
+
     internal lateinit var dbManager: DBManager
 
     //뷰홀더 생성 (레이아웃 생성)
@@ -37,13 +35,10 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
             bind(postlist)
             itemView.tag = postlist
         }
-
-        holder.view.setOnClickListener(View.OnClickListener {
-            fun onClick(view: View) {
-
-                var context: Context = view.getContext()
-            }
-        })
+        holder.itemView.setOnClickListener(){
+            val intent = Intent(holder.itemView?.context, DetailActivity::class.java)
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
+        }
     }
 
     //리스트 사이즈 반환
