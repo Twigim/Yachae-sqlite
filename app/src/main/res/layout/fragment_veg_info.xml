@@ -1,16 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".VegInfoFragment">
+    tools:context=".VegInfoFragment"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="24dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="채식정보 fragment~~"/>
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetStart="0dp">
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="36dp"
+            android:src="@drawable/logo">
+        </ImageView>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="오늘의 비건 상식"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:textStyle="bold">
+    </TextView>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="192dp">
+
+    </View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="비건 온라인몰 바로가기"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:textStyle="bold">
+    </TextView>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <Button
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:background="@drawable/vegan_mall_btn_corner"
+            android:text="🥓 대체육"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:textSize="14dp"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1">
+        </Button>
+
+        <Button
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:background="@drawable/vegan_mall_btn_corner"
+            android:text="🍱 밀키트"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:layout_marginLeft="8dp"
+            android:textSize="14dp"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1">
+        </Button>
+
+
+        <Button
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:background="@drawable/vegan_mall_btn_corner"
+            android:text="🍞 빵/간식"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:textSize="14dp"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="8dp">
+        </Button>
+
+        <Button
+            android:layout_width="164dp"
+            android:layout_height="40dp"
+            android:background="@drawable/vegan_mall_btn_corner"
+            android:text="🛒 생활/반려용품"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="14dp"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1">
+        </Button>
+    </GridLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="초간단 비건 레시피 4종"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:textStyle="bold">
+    </TextView>
+
+    <FrameLayout
+        android:id="@+id/veg_info_recipe1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:src="@drawable/veg_info_recipe1"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="16dp"
+            android:text="새콤한 가지볶음"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:layout_marginLeft="16dp"
+            android:text="준비물 | 가지 2개, 양파 0.5개, 파 한 웅큼"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/veg_info_recipe2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:src="@drawable/veg_info_recipe2"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="16dp"
+            android:text="달달한 감자조림"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:layout_marginLeft="16dp"
+            android:text="준비물 | 감자 3개, 양파 2개, 파 두 웅큼"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/veg_info_recipe3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:src="@drawable/veg_info_recipe3"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="16dp"
+            android:text="하루만에 뚝딱, 아보카도장"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:layout_marginLeft="16dp"
+            android:text="준비물 | 아보카도 2개, 양파 반개, 파프리카 반 개"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/veg_info_recipe4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_height="158dp"
+            android:src="@drawable/veg_info_recipe4"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="16dp"
+            android:text="단 5분만에, 베리${&}바나나 오트밀"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:layout_marginLeft="16dp"
+            android:text="준비물 | 오트밀, 블루베리, 바나나, 두유"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+    </FrameLayout>
+
+
+
+
+
+
+</LinearLayout>
