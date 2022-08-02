@@ -1,53 +1,20 @@
 package com.example.yachae_sqlite
 
-import android.app.AlertDialog
-import android.content.Context
-import android.database.sqlite.SQLiteDatabase
-import android.os.Build
 import android.os.Bundle
-import android.util.AttributeSet
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.widget.*
-import androidx.annotation.RequiresApi
-import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
-import java.text.SimpleDateFormat
-import java.util.*
 
-class ChallengeFragment: Fragment {
-    lateinit var NextButton: Button
-    lateinit var PreviousButton: Button
-    lateinit var CurrentDate: TextView
-    lateinit var gridView: GridView
-    lateinit var dbOpenHelper: DBOpenHelper
-    var calendar = Calendar.getInstance(Locale.KOREAN)
-    var dateFormat = SimpleDateFormat("yyyy MMMM", Locale.KOREAN)
-    lateinit var myGridAdapter: MyGridAdapter
-    lateinit var alertDialog: AlertDialog
-    lateinit var chip_name : String
-    lateinit var chip_milk:Chip
-    var dates: MutableList<Date> = ArrayList()
 
-    var chip:Boolean=false
+class ChallengeFragment : Fragment() {
 
-    var insert:Boolean = false
-    lateinit var chipname: String
+    lateinit var dbManager: DBManager
 
     var initChallenge : Boolean = false
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-        IntializeLayout()
-        SetUpCalendar()
 
-        //전달로 이동 버튼
-        PreviousButton!!.setOnClickListener { //-1한 월을 넣어줌
-            calendar.add(Calendar.MONTH, -1)
-            SetUpCalendar() }
 
     lateinit var username : String
     lateinit var password : String
@@ -109,8 +76,6 @@ class ChallengeFragment: Fragment {
     override fun onStart() {
         super.onStart()
 
-        var dbManager = DBManager(context)
-        initChallenge = dbManager!!.existsColumnInTable("users", "veg_type")
 
 
 
