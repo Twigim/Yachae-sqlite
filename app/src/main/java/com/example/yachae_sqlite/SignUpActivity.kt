@@ -34,7 +34,7 @@ class SignUpActivity : AppCompatActivity() {
 
         signup = findViewById(R.id.btn_signup)
 
-        dbManager = DBManager(this);
+        dbManager = DBManager(this)
 
         signup.setOnClickListener {
             user = username.text.toString()

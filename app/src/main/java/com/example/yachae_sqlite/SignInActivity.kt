@@ -1,12 +1,12 @@
 package com.example.yachae_sqlite
 
-import androidx.appcompat.app.AppCompatActivity
-import android.widget.EditText
-import android.os.Bundle
-import android.widget.Toast
 import android.content.Intent
+import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class SignInActivity : AppCompatActivity() {
     lateinit var username : EditText
@@ -34,6 +34,13 @@ class SignInActivity : AppCompatActivity() {
                 { val checkUserPass = dbManager!!.checkUsernamePassword(user, pass)
                     if (checkUserPass == true) {
                     Toast.makeText(this@SignInActivity, "로그인 성공!!", Toast.LENGTH_SHORT).show()
+
+//                    val bundle = Bundle()
+//                    bundle.putString("username", username.toString())
+//                    bundle.putString("password", password.toString())
+//                    val obj = ChallengeFragment()
+//                    obj.arguments = bundle
+
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent) }
                     else {

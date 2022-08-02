@@ -25,9 +25,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".MainActivity" />
+
+        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".PostActivity"></activity>
+        <activity android:name=".DetailActivity"></activity>
+
+
     </application>
 
 </manifest>
