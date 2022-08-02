@@ -26,17 +26,13 @@ class SignInActivity : AppCompatActivity() {
 
         dbManager = DBManager(this)
 
-
         btn_signin!!.setOnClickListener {
             val user = username!!.text.toString()
             val pass = password!!.text.toString()
             if (user == "" || pass == "") Toast.makeText(
-                this@SignInActivity,
-                "빈칸을 모두 입력해 주세요.",
-                Toast.LENGTH_SHORT
-            ).show() else {
-                val checkUserPass = dbManager!!.checkUsernamePassword(user, pass)
-                if (checkUserPass == true) {
+                this@SignInActivity, "빈칸을 모두 입력해 주세요.",Toast.LENGTH_SHORT).show() else
+                { val checkUserPass = dbManager!!.checkUsernamePassword(user, pass)
+                    if (checkUserPass == true) {
                     Toast.makeText(this@SignInActivity, "로그인 성공!!", Toast.LENGTH_SHORT).show()
 
 //                    val bundle = Bundle()
@@ -46,15 +42,11 @@ class SignInActivity : AppCompatActivity() {
 //                    obj.arguments = bundle
 
                     val intent = Intent(applicationContext, MainActivity::class.java)
-                    intent.putExtra("username",user)
-                    intent.putExtra("password",pass)
-                    startActivity(intent)
-                } else {
+                    startActivity(intent) }
+                    else {
                     Toast.makeText(this@SignInActivity, "로그인 실패..", Toast.LENGTH_SHORT).show()
                 }
             }
-
-
         }
 
         tv_signup!!.setOnClickListener {
