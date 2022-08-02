@@ -24,8 +24,6 @@ class SignUpActivity : AppCompatActivity() {
     var checkUser: Boolean = false
     var insert: Boolean = false
 
-
-
     override fun onCreate(saveInstanceState: Bundle?) {
         super.onCreate(saveInstanceState)
         setContentView(R.layout.activity_signup)
@@ -42,7 +40,6 @@ class SignUpActivity : AppCompatActivity() {
             user = username.text.toString()
             pass = password.text.toString()
             passCheck = passwordCheck.text.toString()
-
             if(user.equals("") || pass.equals("") || passCheck.equals(""))
                 Toast.makeText(this@SignUpActivity, "빈칸을 모두 입력해 주세요.", Toast.LENGTH_SHORT).show()
             else{
@@ -59,14 +56,11 @@ class SignUpActivity : AppCompatActivity() {
                         }
                     }else{
                         Toast.makeText(this@SignUpActivity, "이미 존재하는 회원정보입니다.", Toast.LENGTH_SHORT).show()
-
                     }
                 }else{
                     Toast.makeText(this@SignUpActivity, "입력한 정보를 다시 확인해 주세요", Toast.LENGTH_SHORT).show()
-
                 }
             }
-
         }
     }
 }

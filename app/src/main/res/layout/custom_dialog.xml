@@ -29,7 +29,6 @@
             android:layout_marginBottom="24dp"
             android:background="@drawable/ic_close" />
 
-
     </LinearLayout>
 
 

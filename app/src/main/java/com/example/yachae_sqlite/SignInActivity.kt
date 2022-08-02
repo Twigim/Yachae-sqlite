@@ -44,8 +44,6 @@ class SignInActivity : AppCompatActivity() {
                     Toast.makeText(this@SignInActivity, "로그인 실패..", Toast.LENGTH_SHORT).show()
                 }
             }
-
-
         }
 
         tv_signup!!.setOnClickListener {
