@@ -1,6 +1,7 @@
 package com.example.yachae_sqlite
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -29,14 +30,34 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        username = intent.getStringExtra("user").toString()
-        password = intent.getStringExtra("pass").toString()
+        username = intent.getStringExtra("username").toString()
+        password = intent.getStringExtra("username").toString()
+
+        Log.d("Main test", username)
+        Log.d("Main test", password)
+
+        // Declaring fragment manager from making data
+        // transactions using the custom fragment
+        val mFragmentManager = supportFragmentManager
+        val mFragmentTransaction = mFragmentManager.beginTransaction()
+        val mFragment = ChallengeFragment()
+
+        // On button click, a bundle is initialized and the
+        // text from the EditText is passed in the custom
+        // fragment using this bundle
+        val mBundle = Bundle()
+        mBundle.putString("username", username)
+        mBundle.putString("password", password)
+
+        mFragment.arguments = mBundle
+        mFragmentTransaction.add(R.id.mainContainer, mFragment).commit()
+
 
         //This code is to pass the value to Fragment
-        var bundle=Bundle()
-        bundle.putString("username",username)
-        var frag=ChallengeFragment()
-        frag.arguments=bundle
+//        var bundle=Bundle()
+//        bundle.putString("username",username)
+//        var frag=ChallengeFragment()
+//        frag.arguments=bundle
 
         supportFragmentManager.beginTransaction().add(frameLayout.id, ChallengeFragment()).commit()
 
@@ -46,7 +67,9 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnNavigationItemSelectedListener {
             replaceFragment(
                 when (it.itemId) {
-                    R.id.challenge_btn -> ChallengeFragment()
+                    R.id.challenge_btn -> {
+                        ChallengeFragment()
+                    }
                     R.id.community_btn -> CommunityFragment()
                     R.id.vegInfo_btn -> VegInfoFragment()
                     else -> MypageFragment()

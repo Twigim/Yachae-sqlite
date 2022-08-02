@@ -39,6 +39,12 @@ class SignInActivity : AppCompatActivity() {
                 if (checkUserPass == true) {
                     Toast.makeText(this@SignInActivity, "로그인 성공!!", Toast.LENGTH_SHORT).show()
 
+//                    val bundle = Bundle()
+//                    bundle.putString("username", username.toString())
+//                    bundle.putString("password", password.toString())
+//                    val obj = ChallengeFragment()
+//                    obj.arguments = bundle
+
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     intent.putExtra("username",user)
                     intent.putExtra("password",pass)
