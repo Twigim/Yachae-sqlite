@@ -1,8 +1,10 @@
 package com.example.yachae_sqlite
 
 import android.content.ContentValues
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
 import android.widget.ImageView
@@ -15,7 +17,6 @@ class PostActivity : AppCompatActivity() {
 
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
-    private lateinit var btnPost: ImageView
     private lateinit var edtContent: EditText
 
     private lateinit var dbManager: DBManager
@@ -31,30 +32,7 @@ class PostActivity : AppCompatActivity() {
         dbManager = DBManager(this)
         database = dbManager.writableDatabase
 
-        btnPost = findViewById(R.id.btnPost)
         edtContent = findViewById(R.id.post_content)
-
-        //글 등록(포스팅)
-        btnPost.setOnClickListener {
-            val postContent = edtContent.text.toString()
-
-            val time = SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().time)
-            val postTime = time.toString()
-
-            val saveData = ContentValues()
-            saveData.put("post_content", postContent)
-            saveData.put("post_time", postTime)
-
-            database = dbManager.writableDatabase
-            //database.execSQL("INSERT INTO post VALUES ('" + postContent + "', '" + NULL +"');")
-            database.execSQL("INSERT INTO post VALUES ('" + postContent +"', '"+ postTime +"');")
-            database.close()
-
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.postActivity, fragment_community)
-                .commit()
-        }
 
         //툴바 설정
         toolbar = findViewById(R.id.toolbar)
@@ -68,13 +46,39 @@ class PostActivity : AppCompatActivity() {
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_close)
     }
 
+    //등록 버튼 menu
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.postactivity_menu, menu)
+        return true
+    }
+
     //item 버튼 클릭 시
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             android.R.id.home -> {
-                //toolbar의 back키 눌렀을 때 동작
-                finish()
-                return true
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("Fragment", "postActivity")
+                startActivity(intent)
+            }
+            R.id.action_btnPost -> {
+                val postContent = edtContent.text.toString()
+
+                val time = SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().time)
+                val postTime = time.toString()
+
+                val saveData = ContentValues()
+                saveData.put("post_content", postContent)
+                saveData.put("post_time", postTime)
+
+                //post table에 insert
+                database = dbManager.writableDatabase
+                database.execSQL("INSERT INTO post VALUES ('" + postContent +"', '"+ postTime +"');")
+                database.close()
+
+                val intent = Intent(this, MainActivity::class.java)
+                //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                intent.putExtra("Fragment", "postActivity")
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

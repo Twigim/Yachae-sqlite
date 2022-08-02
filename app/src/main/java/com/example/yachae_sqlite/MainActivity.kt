@@ -48,11 +48,15 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(frameLayout.id, fragment).commit()
     }
+    //postactivity에서 화면이 전환된 경우 커뮤니티 화면으로 이동
+    override fun onResume() {
+        super.onResume()
 
-
-
-
-
+        val targetFragment = intent.getStringExtra("Fragment")
+        if(targetFragment == "postActivity") {
+            supportFragmentManager.beginTransaction().replace(frameLayout.id, CommunityFragment()).commit()
+        }
+    }
 }
 
 
