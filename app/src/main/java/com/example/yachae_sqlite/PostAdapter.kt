@@ -38,7 +38,7 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
             itemView.tag = postlist
         }
         holder.itemView.setOnClickListener(){
-
+//
 //            Intent(context, DetailActivity::class.java).apply {
 //                putExtra("detailContent", "DetailActivity")
 //                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -46,8 +46,8 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
             val intent = Intent(holder.itemView?.context, DetailActivity::class.java)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
-
-            intent.putExtra("detailContent", postlist.postContent)
+            intent.putExtra("detailContent", "DetailActivity")
+            intent.putExtra("DateTime", "DetailActivity")
         }
     }
 
