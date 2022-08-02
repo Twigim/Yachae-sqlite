@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.EditText
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 
@@ -35,7 +36,7 @@ class SignUpActivity : AppCompatActivity() {
 
         signup = findViewById(R.id.btn_signup)
 
-        dbManager = DBManager(this);
+        dbManager = DBManager(this)
 
         signup.setOnClickListener {
             user = username.text.toString()
