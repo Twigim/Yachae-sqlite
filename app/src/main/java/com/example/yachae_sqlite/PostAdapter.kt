@@ -2,12 +2,14 @@ package com.example.yachae_sqlite
 
 import android.content.Context
 import android.content.Intent
+import android.system.Os.bind
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
 
 //RecyclerView.Adapter 상속받은 다음 <> 안에 holder 객체를 받음
@@ -36,6 +38,12 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
             itemView.tag = postlist
         }
         holder.itemView.setOnClickListener(){
+
+//            Intent(context, DetailActivity::class.java).apply {
+//                putExtra("detailContent", "DetailActivity")
+//                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//            }.run { context.startActivity(this)
+
             val intent = Intent(holder.itemView?.context, DetailActivity::class.java)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
 
@@ -56,7 +64,7 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
             val posttime: TextView = view.findViewById(R.id.textDatetime)
 
             postcontent.text = item.postContent
-            posttime.text = item.postTime.toString()
+            posttime.text = item.postTime
         }
     }
 }

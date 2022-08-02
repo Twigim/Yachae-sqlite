@@ -35,7 +35,6 @@ class DetailActivity : AppCompatActivity(){
     //데이터 가져와서 화면에 보여주기
     fun getAndSetIntentData() {
         if(getIntent().hasExtra("detailContent")){
-
             //데이터 가져오기
             detailContent = getIntent().getStringExtra("detailContent").toString()
 

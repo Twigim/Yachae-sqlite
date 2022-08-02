@@ -56,6 +56,7 @@ class PostActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             android.R.id.home -> {
+                //MainActivity로 화면전환
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("Fragment", "postActivity")
                 startActivity(intent)
@@ -75,6 +76,7 @@ class PostActivity : AppCompatActivity() {
                 database.execSQL("INSERT INTO post VALUES ('" + postContent +"', '"+ postTime +"');")
                 database.close()
 
+                //MainActivity로 화면전환
                 val intent = Intent(this, MainActivity::class.java)
                 //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 intent.putExtra("Fragment", "postActivity")
