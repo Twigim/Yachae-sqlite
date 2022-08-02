@@ -19,6 +19,8 @@ class ChallengeFragment : Fragment() {
     lateinit var username : String
     lateinit var password : String
 
+    lateinit var veg_type : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -30,6 +32,7 @@ class ChallengeFragment : Fragment() {
 
 //        username = arguments?.getString("username").toString()
 //        password = arguments?.getString("password").toString()
+
 
 
 
@@ -61,6 +64,9 @@ class ChallengeFragment : Fragment() {
         Log.d("challenge saveu test", username)
         Log.d("challenge savep test", password)
 
+        veg_type = arguments?.getString("veg_type").toString()
+
+        Log.d("challenge saveb test", veg_type.toString())
 
 
 
@@ -88,6 +94,7 @@ class ChallengeFragment : Fragment() {
         args?.putString("password", password);
 
         dialogFragment.setArguments(args)
+        dialogFragment.arguments
         dialogFragment.show(parentFragmentManager, "CustomDialog")
 
 
@@ -107,7 +114,7 @@ class ChallengeFragment : Fragment() {
 //            dialogFragment.arguments = bundle
 
 //            newInstance(username, password)
-//            activity?.let { CustomDialog().show(it.supportFragmentManager, "CustomFragment") }
+              activity?.let { CustomDialog().show(it.supportFragmentManager, "CustomFragment") }
 
 
             

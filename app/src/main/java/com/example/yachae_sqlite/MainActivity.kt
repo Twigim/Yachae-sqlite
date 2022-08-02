@@ -31,26 +31,26 @@ class MainActivity : AppCompatActivity() {
 
 
         username = intent.getStringExtra("username").toString()
-        password = intent.getStringExtra("username").toString()
+        password = intent.getStringExtra("password").toString()
 
         Log.d("Main test", username)
         Log.d("Main test", password)
 
         // Declaring fragment manager from making data
         // transactions using the custom fragment
-        val mFragmentManager = supportFragmentManager
-        val mFragmentTransaction = mFragmentManager.beginTransaction()
-        val mFragment = ChallengeFragment()
+//        val mFragmentManager = supportFragmentManager
+//        val mFragmentTransaction = mFragmentManager.beginTransaction()
+//        val mFragment = ChallengeFragment()
 
         // On button click, a bundle is initialized and the
         // text from the EditText is passed in the custom
         // fragment using this bundle
-        val mBundle = Bundle()
-        mBundle.putString("username", username)
-        mBundle.putString("password", password)
-
-        mFragment.arguments = mBundle
-        mFragmentTransaction.add(R.id.mainContainer, mFragment).commit()
+//        val mBundle = Bundle()
+//        mBundle.putString("username", username)
+//        mBundle.putString("password", password)
+//
+//        mFragment.arguments = mBundle
+//        mFragmentTransaction.add(R.id.mainContainer, mFragment).commit()
 
 
         //This code is to pass the value to Fragment

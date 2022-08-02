@@ -82,7 +82,7 @@ class DBManager(context: Context?) : SQLiteOpenHelper(context, "yachae.db", null
         contentValues.put("password", password)
         contentValues.put("veg_type", veg_type)
         sqLiteDatabase.update("users", contentValues, username.toString() + "= ?", arrayOf(username))
-        return true //Boolean value return korbe
+        return true
     }
 
 
