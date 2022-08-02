@@ -15,24 +15,22 @@ class PostActivity : AppCompatActivity() {
 
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
-    //private lateinit var btnPostClose: ImageView
     private lateinit var btnPost: ImageView
     private lateinit var edtContent: EditText
 
     private lateinit var dbManager: DBManager
     private lateinit var database: SQLiteDatabase
 
+    val fragment_community = CommunityFragment()
+
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
 
-        val fragment_community = CommunityFragment()
-
         dbManager = DBManager(this)
         database = dbManager.writableDatabase
 
-        //btnPostClose = findViewById(R.id.btnPostClose)
         btnPost = findViewById(R.id.btnPost)
         edtContent = findViewById(R.id.post_content)
 
@@ -40,23 +38,17 @@ class PostActivity : AppCompatActivity() {
         btnPost.setOnClickListener {
             val postContent = edtContent.text.toString()
 
-            //val time = SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().time)
-            //val postTime = time.toString()
+            val time = SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().time)
+            val postTime = time.toString()
 
             val saveData = ContentValues()
             saveData.put("post_content", postContent)
-            //saveData.put("post_time", postTime)
+            saveData.put("post_time", postTime)
 
             database = dbManager.writableDatabase
-            database.execSQL("INSERT INTO post VALUES ('" + postContent + "', '" + NULL +"');")
-            //('" + postContent + "', NULL)
-            //database.execSQL("INSERT INTO post VALUES ('" + postContent +"', '"+ postTime +"') ORDER BY DESC;")
-//            ('" + postContent +", '"+ postTime +"');")
-            //('" + postContent + "')
+            //database.execSQL("INSERT INTO post VALUES ('" + postContent + "', '" + NULL +"');")
+            database.execSQL("INSERT INTO post VALUES ('" + postContent +"', '"+ postTime +"');")
             database.close()
-
-//            val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-//            fragmentTransaction.replace(R.id.postActivity, CommunityFragment()).commit()
 
             supportFragmentManager
                 .beginTransaction()
@@ -76,12 +68,6 @@ class PostActivity : AppCompatActivity() {
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_close)
     }
 
-//    //item 버튼 메뉴 Toolbar에 집어 넣기
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        menuInflater.inflate(R.menu.post_toolbar_menu, menu)
-//        return true
-//    }
-
     //item 버튼 클릭 시
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
@@ -91,6 +77,6 @@ class PostActivity : AppCompatActivity() {
                 return true
             }
         }
-            return super.onOptionsItemSelected(item)
-        }
+        return super.onOptionsItemSelected(item)
     }
+}

@@ -53,10 +53,10 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
         fun bind(item:PostList){
             val postcontent: TextView = view.findViewById(R.id.textContent)
-            //val posttime: TextView = view.findViewById(R.id.textDatetime)
+            val posttime: TextView = view.findViewById(R.id.textDatetime)
 
             postcontent.text = item.postContent
-            //posttime.text = item.postTime.toString()
+            posttime.text = item.postTime.toString()
         }
     }
 }

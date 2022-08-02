@@ -9,8 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper
 class DBManager(context: Context?) : SQLiteOpenHelper(context, "yachae.db", null, 1) {
     override fun onCreate(MyDB: SQLiteDatabase) {
         MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)")
-        //MyDB.execSQL("create Table post(post_content TEXT primary key)")
-        MyDB.execSQL("create Table post(post_content TEXT primary key, post_time TEXT)")
+        MyDB.execSQL("create Table post(post_content TEXT, post_time STRING)")
     }
 
     override fun onUpgrade(MyDB: SQLiteDatabase, i: Int, i1: Int) {
@@ -57,7 +56,7 @@ class DBManager(context: Context?) : SQLiteOpenHelper(context, "yachae.db", null
     fun selectPost():MutableList<PostList>{
         val list = mutableListOf<PostList>()
         //전체조회
-        val selectAll = "select * from post"
+        val selectAll = "select * from post order by post_time desc"
         //읽기전용 데이터베이스 변수
         val rd = readableDatabase
         //데이터 받기
@@ -66,10 +65,10 @@ class DBManager(context: Context?) : SQLiteOpenHelper(context, "yachae.db", null
         //반복문을 사용하여 list 에 데이터를 넘겨 줍시다.
         while(cursor.moveToNext()){
             val content = cursor.getString(cursor.getColumnIndex("post_content"))
-            //val time = cursor.getInt(cursor.getColumnIndex("post_time"))
-            list.add(PostList(content))
+            val time = cursor.getString(cursor.getColumnIndex("post_time"))
+            list.add(PostList(content, time))
 
-            //list.add(PostList(content, time))
+            //list.add(PostList(content))
         }
         cursor.close()
         rd.close()
