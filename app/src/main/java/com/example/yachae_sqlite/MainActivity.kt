@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView?.setSelectedItemId(R.id.challenge_btn) //선택된 아이템 지정
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    fun replaceFragment(fragment: Fragment) {
 
         supportFragmentManager.beginTransaction().replace(frameLayout.id, fragment).commit()
 
