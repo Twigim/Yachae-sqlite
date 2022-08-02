@@ -7,10 +7,17 @@
     tools:context=".ChallengeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="챌린지 fragment~~"/>
+        android:orientation="vertical"
+        tools:context=".CalendarMainActivity">
+
+        <com.example.yachae_sqlite.CustomCalendarActivity
+            android:id="@+id/custom_calendar_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.example.yachae_sqlite.CustomCalendarActivity>
+    </LinearLayout>
 
 </FrameLayout>

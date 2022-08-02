@@ -12,7 +12,7 @@ class CalendarMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calendar_main)
+        setContentView(R.layout.fragment_challenge)
 
         customCalendarActivity = findViewById<View>(R.id.custom_calendar_view) as CustomCalendarActivity
     }

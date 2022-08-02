@@ -16,8 +16,7 @@ import androidx.annotation.RequiresApi
 import java.time.LocalDate
 import java.util.*
 
-class MyGridAdapter(
-    context: Context, var dates: List<Date>, var currentDate: Calendar)
+class MyGridAdapter(context: Context, var dates: List<Date>, var currentDate: Calendar)
     : ArrayAdapter<Any?>(context, R.layout.single_cell_layout) {
     var inflater: LayoutInflater
 
