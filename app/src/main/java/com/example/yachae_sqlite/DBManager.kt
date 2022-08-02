@@ -1,15 +1,14 @@
 package com.example.yachae_sqlite
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 class DBManager(context: Context?) : SQLiteOpenHelper(context, "yachae.db", null, 1) {
     override fun onCreate(MyDB: SQLiteDatabase) {
         MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)")
-        MyDB.execSQL("create Table post(post_content TEXT, post_time STRING)")
     }
 
     override fun onUpgrade(MyDB: SQLiteDatabase, i: Int, i1: Int) {
@@ -49,31 +48,6 @@ class DBManager(context: Context?) : SQLiteOpenHelper(context, "yachae.db", null
         val cursor = MyDB.rawQuery("SELECT * FROM $inTable LIMIT 0", null)
 
         return if (cursor.getColumnIndex(columnToCheck) != -1) true else false
-    }
-
-    //select 메소드
-    @SuppressLint("Range")
-    fun selectPost():MutableList<PostList>{
-        val list = mutableListOf<PostList>()
-        //전체조회
-        val selectAll = "select * from post order by post_time desc"
-        //읽기전용 데이터베이스 변수
-        val rd = readableDatabase
-        //데이터 받기
-        val cursor = rd.rawQuery(selectAll,null)
-
-        //반복문을 사용하여 list 에 데이터를 넘겨 줍시다.
-        while(cursor.moveToNext()){
-            val content = cursor.getString(cursor.getColumnIndex("post_content"))
-            val time = cursor.getString(cursor.getColumnIndex("post_time"))
-            list.add(PostList(content, time))
-
-            //list.add(PostList(content))
-        }
-        cursor.close()
-        rd.close()
-
-        return list
     }
 
     companion object {
